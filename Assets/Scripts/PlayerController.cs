@@ -40,11 +40,13 @@ public class PlayerController : MonoBehaviour
         if (tocaPiso && velocity.y < 0)
         {
             velocity.y = -2f;
+            anim.SetBool("Jump", false);
         }
 
         if (Input.GetButtonDown("Jump") && tocaPiso)
         {
             velocity.y = Mathf.Sqrt(alturaDeSalto * -2 * gravedad);
+            anim.SetBool("Jump", true);
         }
 
         velocity.y += gravedad * Time.deltaTime;
