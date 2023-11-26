@@ -286,6 +286,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b524a0fd726ce5b419643dba8bd40c85, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1597668422}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b524a0fd726ce5b419643dba8bd40c85, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 388138450}
   m_SourcePrefab: {fileID: 100100000, guid: b524a0fd726ce5b419643dba8bd40c85, type: 3}
 --- !u!1 &388138447
 GameObject:
@@ -368,8 +371,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 635344666}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 11.026, y: 0, z: 0}
 --- !u!1 &635344661 stripped
 GameObject:
@@ -390,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 3
   velCorriendo: 5
-  alturaDeSalto: 1
+  alturaDeSalto: 2
   tiempoAlGirar: 0.1
   detectaPiso: {fileID: 1597668422}
   distanciaPiso: 0.1

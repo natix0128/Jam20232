@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     float gravedad = -9.81f;
     Vector3 velocity;
     bool tocaPiso;
+    bool dobleSalto;
+
+    bool attack;
 
     Animator anim;
 
@@ -41,12 +44,29 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = -2f;
             anim.SetBool("Jump", false);
+            anim.SetBool("Falling", false);
         }
 
-        if (Input.GetButtonDown("Jump") && tocaPiso)
+        if (Input.GetButtonDown("Jump"))
         {
-            velocity.y = Mathf.Sqrt(alturaDeSalto * -2 * gravedad);
-            anim.SetBool("Jump", true);
+            if (tocaPiso)
+            {
+                velocity.y = Mathf.Sqrt(alturaDeSalto * -2 * gravedad);
+                anim.SetBool("Jump", true);
+                dobleSalto = true;
+            }
+            else if (dobleSalto == true)
+            {
+                velocity.y = Mathf.Sqrt(alturaDeSalto * -2 * gravedad);
+                anim.SetBool("Jump", true);
+                dobleSalto = false;
+            }
+            
+
+        }
+        if (!tocaPiso && !dobleSalto)
+        {
+            anim.SetBool("Falling", true);
         }
 
         velocity.y += gravedad * Time.deltaTime;
@@ -81,8 +101,12 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetFloat("Blend", 0f, 0.1f, Time.deltaTime);
         }
-    }   
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetTrigger("Attack");
+        }
+    }   
     
 
 }
