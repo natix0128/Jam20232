@@ -10,6 +10,9 @@ public class Tconsciente : MonoBehaviour
     public static bool sol = false;
     public static bool luna = false;
 
+    public static bool cLuna = false;
+    public static bool cSol= false;
+
     private void Start()
     {
     }
@@ -27,13 +30,13 @@ public class Tconsciente : MonoBehaviour
             noche = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && Tconsciente.cSol)
         {
             sol = true;
             luna = false;
             Debug.Log("Activaste el tejido del Sol");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && Tconsciente.cLuna)
         {
             luna = true;
             sol = false;

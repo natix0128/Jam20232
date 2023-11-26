@@ -51,7 +51,7 @@ public class DiayNoche : MonoBehaviour
 
     public static void HoraDia ()
     {
-        if (Tconsciente.sol)
+        if (Tconsciente.sol && Tconsciente.cSol)
         {
             if (hora < 6 || hora > 18)
             {
@@ -63,7 +63,7 @@ public class DiayNoche : MonoBehaviour
 
     public static void HoraNoche()
     {
-        if (Tconsciente.luna)
+        if (Tconsciente.luna && Tconsciente.cLuna)
         {
             if (hora > 6 && hora < 18)
             {
