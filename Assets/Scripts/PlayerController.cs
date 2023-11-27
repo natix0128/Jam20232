@@ -45,10 +45,14 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
             anim.SetBool("Jump", false);
             anim.SetBool("Falling", false);
+            attack = true;
         }
+
 
         if (Input.GetButtonDown("Jump"))
         {
+            attack = false;
+
             if (tocaPiso)
             {
                 velocity.y = Mathf.Sqrt(alturaDeSalto * -2 * gravedad);
@@ -67,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if (!tocaPiso && !dobleSalto)
         {
             anim.SetBool("Falling", true);
+            attack = false;
         }
 
         velocity.y += gravedad * Time.deltaTime;
@@ -102,10 +107,15 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("Blend", 0f, 0.1f, Time.deltaTime);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (attack==true)
         {
-            anim.SetTrigger("Attack");
+             if (Input.GetMouseButtonDown(0))
+             {
+                anim.SetTrigger("Attack");
+             }
+
         }
+       
     }   
     
 
